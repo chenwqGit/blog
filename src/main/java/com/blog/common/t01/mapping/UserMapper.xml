@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.common.t01.dao.IUserDao">
+  <resultMap id="BaseResultMap" type="com.blog.common.t01.pojo.User">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="USER_NO" jdbcType="VARCHAR" property="userNo" />
+    <result column="USER_TYPE" jdbcType="CHAR" property="userType" />
+    <result column="GENDER" jdbcType="VARCHAR" property="gender" />
+    <result column="PHONE_NO" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PWD_EXPIRATION" jdbcType="VARCHAR" property="pwdExpiration" />
+    <result column="PWD_ERR_TIME" jdbcType="INTEGER" property="pwdErrTime" />
+    <result column="ENABLE" jdbcType="CHAR" property="enable" />
+    <result column="UPDATE_DT" jdbcType="VARCHAR" property="updateDt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, USER_NAME, PASSWORD, USER_NO, USER_TYPE, GENDER, PHONE_NO, EMAIL, PWD_EXPIRATION, 
+    PWD_ERR_TIME, ENABLE, UPDATE_DT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.common.t01.pojo.User">
+    insert into t_user (ID, USER_NAME, PASSWORD, 
+      USER_NO, USER_TYPE, GENDER, 
+      PHONE_NO, EMAIL, PWD_EXPIRATION, 
+      PWD_ERR_TIME, ENABLE, UPDATE_DT
+      )
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userNo,jdbcType=VARCHAR}, #{userType,jdbcType=CHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{phoneNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{pwdExpiration,jdbcType=VARCHAR}, 
+      #{pwdErrTime,jdbcType=INTEGER}, #{enable,jdbcType=CHAR}, #{updateDt,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.common.t01.pojo.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="userNo != null">
+        USER_NO,
+      </if>
+      <if test="userType != null">
+        USER_TYPE,
+      </if>
+      <if test="gender != null">
+        GENDER,
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="pwdExpiration != null">
+        PWD_EXPIRATION,
+      </if>
+      <if test="pwdErrTime != null">
+        PWD_ERR_TIME,
+      </if>
+      <if test="enable != null">
+        ENABLE,
+      </if>
+      <if test="updateDt != null">
+        UPDATE_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdExpiration != null">
+        #{pwdExpiration,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdErrTime != null">
+        #{pwdErrTime,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=CHAR},
+      </if>
+      <if test="updateDt != null">
+        #{updateDt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.common.t01.pojo.User">
+    update t_user
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        USER_NO = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        USER_TYPE = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        GENDER = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdExpiration != null">
+        PWD_EXPIRATION = #{pwdExpiration,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdErrTime != null">
+        PWD_ERR_TIME = #{pwdErrTime,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null">
+        ENABLE = #{enable,jdbcType=CHAR},
+      </if>
+      <if test="updateDt != null">
+        UPDATE_DT = #{updateDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.common.t01.pojo.User">
+    update t_user
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      USER_NO = #{userNo,jdbcType=VARCHAR},
+      USER_TYPE = #{userType,jdbcType=CHAR},
+      GENDER = #{gender,jdbcType=VARCHAR},
+      PHONE_NO = #{phoneNo,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PWD_EXPIRATION = #{pwdExpiration,jdbcType=VARCHAR},
+      PWD_ERR_TIME = #{pwdErrTime,jdbcType=INTEGER},
+      ENABLE = #{enable,jdbcType=CHAR},
+      UPDATE_DT = #{updateDt,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.blog.common.t01.pojo.User">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="USER_NO" jdbcType="VARCHAR" property="userNo" />
+    <result column="USER_TYPE" jdbcType="CHAR" property="userType" />
+    <result column="GENDER" jdbcType="VARCHAR" property="gender" />
+    <result column="PHONE_NO" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PWD_EXPIRATION" jdbcType="VARCHAR" property="pwdExpiration" />
+    <result column="PWD_ERR_TIME" jdbcType="INTEGER" property="pwdErrTime" />
+    <result column="ENABLE" jdbcType="CHAR" property="enable" />
+    <result column="UPDATE_DT" jdbcType="VARCHAR" property="updateDt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, USER_NAME, PASSWORD, USER_NO, USER_TYPE, GENDER, PHONE_NO, EMAIL, PWD_EXPIRATION, 
+    PWD_ERR_TIME, ENABLE, UPDATE_DT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.common.t01.pojo.User">
+    insert into t_user (ID, USER_NAME, PASSWORD, 
+      USER_NO, USER_TYPE, GENDER, 
+      PHONE_NO, EMAIL, PWD_EXPIRATION, 
+      PWD_ERR_TIME, ENABLE, UPDATE_DT
+      )
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userNo,jdbcType=VARCHAR}, #{userType,jdbcType=CHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{phoneNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{pwdExpiration,jdbcType=VARCHAR}, 
+      #{pwdErrTime,jdbcType=INTEGER}, #{enable,jdbcType=CHAR}, #{updateDt,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.common.t01.pojo.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="userNo != null">
+        USER_NO,
+      </if>
+      <if test="userType != null">
+        USER_TYPE,
+      </if>
+      <if test="gender != null">
+        GENDER,
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="pwdExpiration != null">
+        PWD_EXPIRATION,
+      </if>
+      <if test="pwdErrTime != null">
+        PWD_ERR_TIME,
+      </if>
+      <if test="enable != null">
+        ENABLE,
+      </if>
+      <if test="updateDt != null">
+        UPDATE_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdExpiration != null">
+        #{pwdExpiration,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdErrTime != null">
+        #{pwdErrTime,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=CHAR},
+      </if>
+      <if test="updateDt != null">
+        #{updateDt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.common.t01.pojo.User">
+    update t_user
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        USER_NO = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        USER_TYPE = #{userType,jdbcType=CHAR},
+      </if>
+      <if test="gender != null">
+        GENDER = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        PHONE_NO = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdExpiration != null">
+        PWD_EXPIRATION = #{pwdExpiration,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdErrTime != null">
+        PWD_ERR_TIME = #{pwdErrTime,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null">
+        ENABLE = #{enable,jdbcType=CHAR},
+      </if>
+      <if test="updateDt != null">
+        UPDATE_DT = #{updateDt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.common.t01.pojo.User">
+    update t_user
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      USER_NO = #{userNo,jdbcType=VARCHAR},
+      USER_TYPE = #{userType,jdbcType=CHAR},
+      GENDER = #{gender,jdbcType=VARCHAR},
+      PHONE_NO = #{phoneNo,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PWD_EXPIRATION = #{pwdExpiration,jdbcType=VARCHAR},
+      PWD_ERR_TIME = #{pwdErrTime,jdbcType=INTEGER},
+      ENABLE = #{enable,jdbcType=CHAR},
+      UPDATE_DT = #{updateDt,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
