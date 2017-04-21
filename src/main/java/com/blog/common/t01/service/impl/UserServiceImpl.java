@@ -8,7 +8,15 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.blog.common.t01.dao.IUserDao;
-
+/**
+ * 
+ * 功能说明：用户管理 业务逻辑层
+ *
+ * @date 2017-4-21
+ * @author chenwq
+ * @email chenwqEmail@163.com
+ *
+ */
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 	@Resource

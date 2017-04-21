@@ -1,28 +1,61 @@
 package com.blog.common.t01.pojo;
-
+/**
+ * 
+ * 功能说明：用户实体类
+ *
+ * @date 2017-4-21
+ * @author chenwq
+ * @email chenwqEmail@163.com
+ *
+ */
 public class User {
+	/**
+	 * 用户id
+	 */
     private Integer id;
-
+    /**
+     * 用户名称
+     */
     private String userName;
-
+    /**
+     * 密码
+     */
     private String password;
-
+    /**
+     * 用户号
+     */
     private String userNo;
-
+    /**
+     * 用户类型
+     */
     private String userType;
-
+    /**
+     * 用户性别
+     */
     private String gender;
-
+    /**
+     * 手机号
+     */
     private String phoneNo;
-
+    /**
+     * 电子邮件
+     */
     private String email;
-
+    /**
+     * 密码有效日期
+     */
     private String pwdExpiration;
-
+    /**
+     * 密码错误次数
+     */
     private Integer pwdErrTime;
-
+    /**
+     * 是否有效
+     */
     private String enable;
-
+    /**
+     * 更新日期
+     */
     private String updateDt;
 
     public Integer getId() {
