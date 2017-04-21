@@ -1,7 +1,11 @@
 package com.blog.common.t01.dao;
 
 import com.blog.common.t01.pojo.User;
-
+/**
+ * 
+ * @author CWQ
+ *
+ */
 public interface IUserDao {
     int deleteByPrimaryKey(Integer id);
 
