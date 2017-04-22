@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.chenwq.blog</groupId>
-  <artifactId>chenwqBlog</artifactId>
+  <groupId>org.person.blog</groupId>
+  <artifactId>blog</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>chenwqBlog Maven Webapp</name>
+  <name>blog Maven Webapp</name>
   <url>http://maven.apache.org</url>
 <properties>
 		<!-- spring版本号 -->
@@ -165,6 +165,19 @@
 		</dependency>
 	</dependencies>
   <build>
-    <finalName>chenwqBlog</finalName>
+    <finalName>blog</finalName>
+    <resources>
+    	<!--编译之后包含xml-->
+		<resource>
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.xml</include>
+			</includes>
+			<filtering>true</filtering>
+		</resource>
+		<resource>
+			<directory>src/main/resources</directory>
+		</resource>
+	</resources>
   </build>
 </project>
